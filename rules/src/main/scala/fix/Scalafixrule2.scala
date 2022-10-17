@@ -9,7 +9,11 @@ class Scalafixrule2 extends SemanticRule("Scalafixrule2") {
     println("Tree.syntax: " + doc.tree.syntax)
     println("Tree.structure: " + doc.tree.structure)
     println("Tree.structureLabeled: " + doc.tree.structureLabeled)
-    Patch.empty
+
+    //Patch.empty
+    doc.tree.collect { case t @ Lit.Int(4) =>
+      Patch.replaceTree(t, "(2+2)")
+    }.asPatch
   }
 
 }

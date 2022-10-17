@@ -9,7 +9,9 @@ object Scalafixrule4 {
 
   val a : Int = 4
 
-  def square : Double => Double => x => x * x
+  def square : Double => Double = x => x * x
+
+  def cube : Double => Double = x => x * x * x
 
   val surface : Double => Double = radius => 4 * Pi * square(radius)
 
