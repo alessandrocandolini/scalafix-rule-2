@@ -20,7 +20,6 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         scala: [3.2.0]
-        java: [temurin@17]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout current branch (full)
@@ -30,8 +29,6 @@ jobs:
 
       - name: Setup Java and Scala
         uses: olafurpg/setup-scala@v11
-        with:
-          java-version: ${{ matrix.java }}
 
       - name: Cache sbt
         uses: actions/cache@v2
